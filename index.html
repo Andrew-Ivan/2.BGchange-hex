@@ -5,58 +5,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-	<div class="box">
-		<a href="#" class="btn">ChangeColor</a>
-		<p>hex:<span class="hexValue">#FFFFFF</span></p>
-
-	</div>
-	<style>
-		.box {
-			width: 200px;
-			height: 200px;
-			border: 1px solid black;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			margin: 0 auto;
-			margin-top: 40vh;
-		}
-
-		.btn {
-			text-decoration: none;
-			padding: 10px 20px;
-			border: 1px solid black;
-			border-radius: 15px;
-			color: balck;
-		}
-
-		.btn:hover {
-			background: black;
-			color: white;
-		}
-	</style>
-	<script>
-		let box = document.querySelector('.box');
-		let hexValue = document.querySelector('.hexValue');
-		let btn = document.querySelector('.btn');
-		btn.addEventListener('click', changeColor);
-
-
-		function changeColor() {
-			code_color = document.querySelector('.hexValue'),
-				r = Math.floor(Math.random() * (256)),
-				g = Math.floor(Math.random() * (256)),
-				b = Math.floor(Math.random() * (256)),
-				color = '#' + r.toString(16) + g.toString(16) + b.toString(16);
-			box.style.background = color;
-			hexValue.innerHTML = color;
-
-		}
-	</script>
+<div class="content-wrapper">
+	<p>hex:<span class="hexValue">#FFFFFF</span></p>
+		<div class="wrapper">
+			<div class="box">
+				<button class="learn-more btn">Change Color</button>
+			</div>
+		</div>
+</div>
+	<script src="script.js"></script>
 </body>
 
 </html>

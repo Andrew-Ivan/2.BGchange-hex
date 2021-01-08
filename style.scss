@@ -1,0 +1,195 @@
+.content-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.content-wrapper p {
+  font-size: 30px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  color: balck;
+}
+
+//--------------------------------------------BORDER-------------------
+
+.btn:hover {
+  background: black;
+  color: white;
+}
+
+.box {
+  background: white;
+  border-radius: 6px;
+  width: 97.5%;
+  height: 97.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
+  position: relative;
+  z-index: 1;
+  width: 400px;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-family: "Roboto Condensed", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper::before {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: #bfe2ff;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(#bfe2ff, #bfe2ff),
+    linear-gradient(#337ab7, #337ab7), linear-gradient(#bfe2ff, #bfe2ff),
+    linear-gradient(#337ab7, #337ab7);
+  animation: anim-ramka-5 4s linear infinite;
+}
+.wrapper::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 6px;
+  top: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  background: white;
+  border-radius: 5px;
+}
+@keyframes anim-ramka-5 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+//--------------------------BTN-----------------------------
+@import url("https://fonts.googleapis.com/css?family=Rubik:700&display=swap");
+
+$bg: rgb(112, 125, 245);
+$text: #382b22;
+$light-pink: #aec8ff;
+$pink: #4a93ff;
+$dark-pink: #5f73df;
+$pink-border: #4528ac;
+$pink-shadow: #ffe3e2;
+
+* {
+  box-sizing: border-box;
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+  background: $bg;
+}
+
+button {
+  user-select: none;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-size: inherit;
+  font-family: inherit;
+  &.learn-more {
+    font-weight: 600;
+    color: $text;
+    text-transform: uppercase;
+    padding: 1.25em 2em;
+    background: $light-pink;
+    border: 2px solid $pink-border;
+    border-radius: 0.75em;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+      background 150ms cubic-bezier(0, 0, 0.58, 1);
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $dark-pink;
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px $pink-border;
+      //  box-shadow: 0 0 0 2px $pink-border, 0 0.625em 0 0 $pink-shadow;
+      transform: translate3d(0, 0.75em, -1em);
+      transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+        box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+    }
+    &:hover {
+      background: $pink;
+      transform: translate(0, 0.25em);
+      &::before {
+        //box-shadow: 0 0 0 2px $pink-border, 0 0.5em 0 0 $pink-shadow;
+        transform: translate3d(0, 0.5em, -1em);
+      }
+    }
+    &:active {
+      background: $pink;
+      transform: translate(0em, 0.75em);
+      &::before {
+        //box-shadow: 0 0 0 2px $pink-border, 0 0 $pink-shadow;
+        transform: translate3d(0, 0, -1em);
+      }
+    }
+  }
+}
